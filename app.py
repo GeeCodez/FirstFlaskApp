@@ -13,13 +13,14 @@ def login():
 def hello_world():
     return 'Hello World'
 
-@app.route('/user/<username>')
-def show_user_profile(username):
-    return f'User {username}'
-
 @app.route('/post/<int:id>')
 def show_post(id):
     return f'This post has the id {id}'
+
+def show_user(username):
+    return f'Hello {username} !'
+  
+app.add_url_rule('/user/<username>', 'show_user', show_user)
 
 if __name__ == '__main__':
     app.run(debug=True)
